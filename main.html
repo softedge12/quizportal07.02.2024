@@ -9,37 +9,39 @@
   <h1>Welcome to the Main Page</h1>
   <button id="logout-btn">Logout</button>
 
-  <script>
-    // एक्सपायरी डेट चेक करने का फंक्शन
-    function checkExpiry() {
-      const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-      if (loggedInUser) {
-        const expiryDate = new Date(loggedInUser.expiry);
-        const currentDate = new Date();
+ <script>
+  // डेट चेक करने का फ़ंक्शन
+  function checkExpiry() {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
-        // डेट एक्सपायरी चेक
-        if (currentDate >= expiryDate) {
-          alert("Your session has expired. You will be logged out.");
-          localStorage.removeItem("loggedInUser");
-          window.location.href = "index.html";
-        }
-      } else {
-        window.location.href = "index.html";
+    if (loggedInUser) {
+      const expiryDate = new Date(loggedInUser.expiry);
+      const currentDate = new Date();
+
+      // डेट एक्सपायर चेक करें
+      if (currentDate >= expiryDate) {
+        alert("Your session has expired. Logging out...");
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "index.html"; // वापस लॉगिन पेज पर ले जाएं
       }
-    }
-
-    // हर सेकंड डेट चेक करें
-    setInterval(checkExpiry, 1000);
-
-    // लॉगआउट बटन इवेंट
-    document.getElementById('logout-btn').addEventListener('click', () => {
-      localStorage.removeItem("loggedInUser");
+    } else {
       window.location.href = "index.html";
-    });
+    }
+  }
 
-    // पेज लोड होते ही चेक करें
-    checkExpiry();
-  </script>
+  // हर सेकंड डेट चेक करें
+  setInterval(checkExpiry, 1000);
+
+  // पेज लोड होते ही डेट चेक करें
+  checkExpiry();
+
+  // लॉगआउट बटन का हैंडलिंग
+  document.getElementById('logout-btn').addEventListener('click', () => {
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "index.html";
+  });
+</script>
+
 </body>
 </html>
 
