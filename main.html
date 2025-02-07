@@ -10,7 +10,7 @@
   <button id="logout-btn">Logout</button>
 
   <script>
-    // एक्सपायरी चेक और स्वतः लॉगआउट फंक्शन
+    // एक्सपायरी डेट चेक करें
     function checkExpiry() {
       const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
       if (loggedInUser) {
@@ -27,10 +27,10 @@
       }
     }
 
-    // हर 2 सेकंड में डेट चेक करें
-    setInterval(checkExpiry, 2000);
+    // हर 1 सेकंड पर डेट चेक करें (सटीकता के लिए)
+    setInterval(checkExpiry, 1000);
 
-    // पेज लोड होते ही तुरंत चेक करें
+    // पेज लोड होते ही चेक करें
     checkExpiry();
 
     // लॉगआउट बटन
