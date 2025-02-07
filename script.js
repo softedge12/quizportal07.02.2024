@@ -44,8 +44,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("logout-button").addEventListener("click", () => {
       sessionStorage.clear();
+      history.replaceState(null, null, "index.html");
       window.location.href = "index.html";
     });
+
+    // Disable back navigation by clearing cache
+    window.onpageshow = function(event) {
+      if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+        sessionStorage.clear();
+        window.location.href = "index.html";
+      }
+    };
   }
 });
-
