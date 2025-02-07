@@ -8,7 +8,7 @@
     {
       "userId": "testUser",
       "password": "testPass",
-      "expiry": "2025-03-01T00:00:00Z"
+      "expiry": "2025-01-01T00:00:00Z"
     }
   ]
 }
