@@ -1,14 +1,12 @@
-{
-  "users": [
-    {
-      "userId": "user123",
-      "password": "pass123",
-      "expiry": "2025-01-15T00:00:00Z"
-    },
-    {
-      "userId": "testUser",
-      "password": "testPass",
-      "expiry": "2025-03-01T00:00:00Z"
-    }
-  ]
-}
+[
+  {
+    "username": "testuser",
+    "password": "12345",
+    "expiry": "2025-02-10"
+  },
+  {
+    "username": "admin",
+    "password": "adminpass",
+    "expiry": "2025-02-07"
+  }
+]
