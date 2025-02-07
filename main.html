@@ -10,7 +10,6 @@
   <button id="logout-btn">Logout</button>
 
   <script>
-    // एक्सपायरी चेक करें
     function checkExpiry() {
       const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
       if (loggedInUser) {
@@ -27,13 +26,10 @@
       }
     }
 
-    // हर 1 सेकंड पर चेक करें
     setInterval(checkExpiry, 1000);
 
-    // पेज लोड पर चेक करें
     checkExpiry();
 
-    // लॉगआउट बटन
     document.getElementById('logout-btn').addEventListener('click', () => {
       sessionStorage.removeItem("loggedInUser");
       window.location.href = "index.html";
@@ -41,4 +37,3 @@
   </script>
 </body>
 </html>
-ram
