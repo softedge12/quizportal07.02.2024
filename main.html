@@ -4,43 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Main Page</title>
+  <script src="script.js" defer></script>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding-top: 50px; background: #f3f4f6; }
+  </style>
 </head>
 <body>
-  <h1>Welcome to the Main Page</h1>
-  <button id="logout-btn">Logout</button>
-
-<script>
-  function checkExpiry() {
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
-    if (loggedInUser) {
-      const expiryDate = new Date(loggedInUser.expiry);
-      const currentDate = new Date();
-
-      // दोनों समयों को UTC में तुलना करें
-      if (currentDate.getTime() >= expiryDate.getTime()) {
-        alert("Your session has expired. Logging out...");
-        localStorage.removeItem("loggedInUser");
-        window.location.href = "index.html"; // वापस लॉगिन पेज पर ले जाएं
-      }
-    } else {
-      window.location.href = "index.html";
-    }
-  }
-
-  // हर 5 सेकंड पर चेक करें
-  setInterval(checkExpiry, 5000);
-
-  // पेज लोड होने पर तुरंत चेक करें
-  checkExpiry();
-
-  // लॉगआउट बटन हैंडलिंग
-  document.getElementById('logout-btn').addEventListener('click', () => {
-    localStorage.removeItem("loggedInUser");
-    window.location.href = "index.html";
-  });
-</script>
-
+  <h1>Welcome to Main Page</h1>
+  <button id="logout-button">Logout</button>
 </body>
 </html>
-
