@@ -14,7 +14,7 @@ document.getElementById("login-form").addEventListener("submit", (e) => {
           const currentDate = new Date();
 
           if (currentDate <= expiryDate) {
-            sessionStorage.setItem("loggedInUser", JSON.stringify(user));
+            localStorage.setItem("loggedInUser", JSON.stringify(user));
             window.location.href = "main.html";
           } else {
             alert("Your login has expired.");
